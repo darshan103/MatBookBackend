@@ -171,7 +171,7 @@ app.post("/api/submissions", (req, res) => {
 app.get("/api/submissions", (req, res) => {
     let page = parseInt(req.query.page) || 1;
     let limit = parseInt(req.query.limit) || 5;
-    let sort = req.query.sort === "asc" ? "ASC" : "DESC";
+    let sort = req.query.sortOrder === "asc" ? "ASC" : "DESC";
 
     let offset = (page - 1) * limit;
 
