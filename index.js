@@ -9,7 +9,7 @@ app.use(express.json());
 
 // ------------------------ FORM SCHEMA ------------------------
 const formSchema = {
-    title: "EMPLOYEE FORM",
+    title: "Employee Form",
     description: "Fill your employee details carefully",
     fields: [
         {
@@ -70,55 +70,6 @@ const formSchema = {
 app.get("/api/form-schema", (req, res) => {
     res.json(formSchema);
 });
-
-// ------------------------ VALIDATION ------------------------
-// function validateSubmission(data) {
-//     const errors = {};
-
-//     formSchema.fields.forEach((field) => {
-//         const value = data[field.name];
-//         const rules = field.validations || {};
-
-//         if (field.required && !value) {
-//             errors[field.name] = `${field.name} is required`;
-//             return;
-//         }
-
-//         if (field.type === "text") {
-//             if (rules.minLength && value.length < rules.minLength)
-//                 errors[field.name] = `At least ${rules.minLength} characters required`;
-//             if (rules.maxLength && value.length > rules.maxLength)
-//                 errors[field.name] = `Max ${rules.maxLength} characters allowed`;
-//         }
-
-//         if (field.type === "number") {
-//             if (rules.min && value < rules.min)
-//                 errors[field.name] = `Minimum allowed age is ${rules.min}`;
-//             if (rules.max && value > rules.max)
-//                 errors[field.name] = `Maximum allowed age is ${rules.max}`;
-//         }
-
-//         if (field.type === "select") {
-//             if (!field.options.includes(value))
-//                 errors[field.name] = `Invalid option selected`;
-//         }
-
-//         if (field.type === "multi-select") {
-//             if (rules.minSelected && value.length < rules.minSelected)
-//                 errors[field.name] = `Select at least ${rules.minSelected} items`;
-
-//             if (rules.maxSelected && value.length > rules.maxSelected)
-//                 errors[field.name] = `Select at max ${rules.maxSelected} items`;
-//         }
-
-//         if (field.type === "date") {
-//             if (rules.minDate && new Date(value) < new Date(rules.minDate))
-//                 errors[field.name] = `Date must be after ${rules.minDate}`;
-//         }
-//     });
-
-//     return errors;
-// }
 
 // -------------------- VALIDATION MIDDLEWARE --------------------
 const validateSubmissionMiddleware = (req, res, next) => {
