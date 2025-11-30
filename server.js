@@ -157,7 +157,7 @@ app.post("/api/submissions", (req, res) => {
                 return res.status(500).json({ success: false, message: "Database insert failed" });
             }
 
-            res.json({
+            res.status(201).json({
                 success: true,
                 submissionId,
                 createdAt,
