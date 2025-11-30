@@ -10,7 +10,7 @@ app.use(express.json());
 // ------------------------ FORM SCHEMA ------------------------
 const formSchema = {
     title: "EMPLOYEE FORM",
-    description: "Fill your employee details",
+    description: "Fill your employee details carefully",
     fields: [
         {
             name: "fullName",
@@ -20,7 +20,7 @@ const formSchema = {
             placeholder: "Enter your name",
             validations: {
                 minLength: 3,
-                maxLength: 50
+                maxLength: 30
             }
         },
         {
